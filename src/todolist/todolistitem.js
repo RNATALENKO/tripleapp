@@ -3,6 +3,9 @@ import {Component} from 'react';
 
 class ListItem extends Component{
 
+    
+
+
 
     state = {
         input: this.props.inputprop 
