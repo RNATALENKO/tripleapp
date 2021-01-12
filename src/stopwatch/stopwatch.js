@@ -8,23 +8,27 @@ import StopWatchTimer from './stopwatchtimer.js'
 
     state ={
         firstplace:0,
-        secondplace:0
+        secondplace:0,
+        thirdplace: 0, 
+        fourthplace:0,
+        fifthplace:0,
     }
 
-
     //called by child
-    update = (firstvalue) => {
+    update = (firstvalue, secondvalue, thirdvalue, fourthvalue, fifthvalue) => {
 
         this.setState({
-            firstplace:firstvalue
+            firstplace:firstvalue,
+            secondplace:secondvalue,
+            thirdplace: thirdvalue,
+            fourthplace: fourthvalue,
+            fifthplace: fifthvalue,
         }); 
 
     }
 
-
-
     render(){
-        return <StopWatchTimer firstplaceprop={this.state.firstplace} updatepropf={this.update}></StopWatchTimer>
+        return <StopWatchTimer parentstateprop={this.state} updatepropf={this.update}></StopWatchTimer>
     }
 
 
