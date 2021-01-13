@@ -7,6 +7,7 @@ import {Component} from 'react';
 
 class StopWatchTimer extends Component{
 
+    intervalId = "";
 
    //updates parent's state, and child state
    update = () =>{
@@ -19,6 +20,10 @@ class StopWatchTimer extends Component{
             let fifthvalue = this.props.parentstateprop.fifthplace; 
             
 
+
+            if(firstvalue==3){
+                clearInterval();
+            }
 
             //if new value is 10 reset 
             if(firstvalue>=10){
@@ -61,25 +66,41 @@ class StopWatchTimer extends Component{
 
 
             //update parent state with new value
-            this.props.updatepropf(firstvalue, secondvalue, thirdvalue, fourthvalue, fifthvalue);
+            this.props.methodwrapper.update(firstvalue, secondvalue, thirdvalue, fourthvalue, fifthvalue);
 
-            //if first place hits 9, go to 1, and add 1 to second place
 
    }
 
+   updatePause = () => {
+            clearInterval(this.intervalId);
+            this.props.methodwrapper.updatePause(true);  
+   }
+
+
    startTimer = () =>{
         //continuous update
-        setInterval(this.update, 1000);
+        //only if intervalId does not exist
+        if(this.intervalId == ""){
+            this.intervalId = setInterval(this.update, 1000); 
+        }
+        if(this.props.parentstateprop.paused == true){
+            clearInterval(this.intervalId);
+            this.intervalId = setInterval(this.update, 1000); 
+            this.props.methodwrapper.updatePause(false);
+        }
    }
    
    start = ()=>{
 
         this.startTimer();
-        //disable start button
-        document.getElementById('startbtn').disabled="true";
-
    }
 
+
+   reset = () => {
+      this.props.methodwrapper.update(0,0,0,0,0);
+      clearInterval(this.intervalId);
+      this.intervalId="";
+   }
 
 
 
@@ -97,9 +118,9 @@ class StopWatchTimer extends Component{
                     <span>{this.props.parentstateprop.firstplace}</span>
                 </div>
                 <div>
-                    <button id="startbtn" onClick={this.start}>start</button>
-                    <button id="pausebtn">pause</button>
-                    <button>reset</button>
+                    <button id="startbtn btn" onClick={this.start}>start</button>
+                    <button id="pausebtn btn" onClick={this.updatePause}>pause</button>
+                    <button id="resetbtn btn" onClick={this.reset}>reset</button>
                 </div>
        </div>
        

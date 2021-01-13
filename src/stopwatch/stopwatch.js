@@ -12,23 +12,36 @@ import StopWatchTimer from './stopwatchtimer.js'
         thirdplace: 0, 
         fourthplace:0,
         fifthplace:0,
+        paused:false
     }
 
-    //called by child
-    update = (firstvalue, secondvalue, thirdvalue, fourthvalue, fifthvalue) => {
 
-        this.setState({
-            firstplace:firstvalue,
-            secondplace:secondvalue,
-            thirdplace: thirdvalue,
-            fourthplace: fourthvalue,
-            fifthplace: fifthvalue,
-        }); 
+
+    methodwrapper = {
+
+                 //called by child
+                update: (firstvalue, secondvalue, thirdvalue, fourthvalue, fifthvalue) => {
+                    this.setState({
+                        firstplace:firstvalue,
+                        secondplace:secondvalue,
+                        thirdplace: thirdvalue,
+                        fourthplace: fourthvalue,
+                        fifthplace: fifthvalue,
+                    }); 
+                },
+
+                updatePause : (newbool) =>{
+                    this.setState({
+                        paused:newbool
+                    });
+                 }
 
     }
+
+
 
     render(){
-        return <StopWatchTimer parentstateprop={this.state} updatepropf={this.update}></StopWatchTimer>
+        return <StopWatchTimer parentstateprop={this.state} methodwrapper={this.methodwrapper}></StopWatchTimer>
     }
 
 
