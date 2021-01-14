@@ -12,15 +12,12 @@ class StopWatchTimer extends Component{
    //updates parent's state, and child state
    update = () =>{
 
-
             let firstvalue = this.props.parentstateprop.firstplace+1; //get the firstplace prop value, add one
             let secondvalue = this.props.parentstateprop.secondplace; 
             let thirdvalue = this.props.parentstateprop.thirdplace; 
             let fourthvalue = this.props.parentstateprop.fourthplace;
             let fifthvalue = this.props.parentstateprop.fifthplace; 
             
-
-
             if(firstvalue==3){
                 clearInterval();
             }
@@ -51,8 +48,6 @@ class StopWatchTimer extends Component{
                 }
             }
 
-
-
             if(fourthvalue>=6){
                 fourthvalue=0;
 
@@ -64,18 +59,14 @@ class StopWatchTimer extends Component{
                 }  
             }
 
-
             //update parent state with new value
             this.props.methodwrapper.update(firstvalue, secondvalue, thirdvalue, fourthvalue, fifthvalue);
-
-
    }
 
    updatePause = () => {
             clearInterval(this.intervalId);
             this.props.methodwrapper.updatePause(true);  
    }
-
 
    startTimer = () =>{
         //continuous update
@@ -91,10 +82,8 @@ class StopWatchTimer extends Component{
    }
    
    start = ()=>{
-
         this.startTimer();
    }
-
 
    reset = () => {
       this.props.methodwrapper.update(0,0,0,0,0);
@@ -126,8 +115,6 @@ class StopWatchTimer extends Component{
        
            
    }
-
-
 }
 
 

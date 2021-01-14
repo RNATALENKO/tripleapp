@@ -38,8 +38,6 @@ import StopWatchTimer from './stopwatchtimer.js'
 
     }
 
-
-
     render(){
         return <StopWatchTimer parentstateprop={this.state} methodwrapper={this.methodwrapper}></StopWatchTimer>
     }
