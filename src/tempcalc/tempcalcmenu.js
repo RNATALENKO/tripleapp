@@ -4,56 +4,44 @@ import TempCalcFtoc from './tempcalcftoc';
 
 
 
-//this class will determine which component to return based on the users click
+//this class passes methods and state to it's child menu
 
 class TempCalcMenu extends Component{
 
 
     state={
-        farenheit:0,
-        celcius:100000000,
-    }
-
-    
-
-
-    //functions that will calculate farenheit
-    updateTempMethods = {
-
-        updateFarenheit: (newValue)=>{
-            this.setState({
-                farenheit:newValue,
-            })
-        },
-    
-        updateCelcius: (newValue)=>{
-            this.setState({
-                celcius:newValue,
-            })
-        }
+        menu:null
     }
 
    
 /*this doesn't actually render or return the updated prop what's the solution?? */
-    ftoc = <TempCalcFtoc tempcalcstate={this.state} updateTempMethods={this.updateTempMethods}></TempCalcFtoc>; 
-    ctof = <TempCalcCtof tempcalcstate={this.state} updateTempMethods={this.updateTempMethods}></TempCalcCtof>;
+    ftoc = <TempCalcFtoc></TempCalcFtoc>; 
+    ctof = <TempCalcCtof></TempCalcCtof>;
 
 
 
-    //sets the menu to appear
+    
+    //sets the menu jsx menu to appear in tempcalc.js
     sendFtoc = ()=>{
-        this.props.updatefunc(this.ftoc);
+
+        this.setState({
+            menu:this.ftoc
+        })
     }
 
     sendCtof = ()=>{
-        this.props.updatefunc(this.ctof);
+        this.setState({
+            menu:this.ctof
+        })
     }
     
+
     render(){
 
             return <div>
                         <a onClick={this.sendFtoc} href="#" style={{marginRight:"20px"}}>Farenheit to Celcius</a>
                         <a onClick={this.sendCtof} href="#">Celcius to Farenheiht</a>
+                        {this.state.menu}
                    </div>
     }
 }

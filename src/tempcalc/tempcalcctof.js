@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import TempCalcCtofsplit from "./tempcalcctofsplit.js";
 
 
 //this class will determine which component to return based on the users click
@@ -7,22 +8,19 @@ class TempCalcCtof extends Component{
 
 
     state={
-       
+        input:null  
     }
 
 
+    updateInput = (newValue)=>{
+        this.setState({
+            input:newValue
+        })
+    }
+
     render(){
 
-          
-
-            return <div style={{padding:"10px"}}>
-                        <br></br>
-                        <label>Celcius:</label>
-                        <input style={{display:"block"}}></input>
-                        <button style={{display:"block"}}>Get farenheit</button>
-                        <label>Farenheit: </label>
-                        <div>{this.props.tempcalcstate.farenheit}</div>
-                    </div>
+            return <TempCalcCtofsplit parentstate={this.state} updateInput={this.updateInput}></TempCalcCtofsplit>
     }
 }
 
