@@ -12,12 +12,13 @@ class App extends Component{
 
   render(){
     
-    return <div>
-              <TempCalc></TempCalc>
+    return <div style={{display:"flex"}}>
+              <div style={{padding:"20px"}}><ToDo></ToDo></div>
+              <div style={{padding:"20px"}}><StopWatch></StopWatch></div>
+              <div style={{padding:"20px"}}><TempCalc></TempCalc></div>
           </div>;
 
   }
 }
-
 
 export default App;

@@ -7,7 +7,6 @@ import {Component} from 'react';
 
 class TempCalcFtocsplit extends Component{
 
-
     state={
         input:this.props.parentstate.input,
     }

@@ -22,8 +22,8 @@ class ListItem extends Component{
 
 
         return <li style={listitemStyle}>
-                    <div>{this.props.inputprop}</div>
-                    <div>what your number</div>
+                    <div>To Do</div>
+                    <div style={{fontSize:"12px"}}>{this.props.inputprop}</div>
                 </li>
     }
 }

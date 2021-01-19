@@ -39,7 +39,10 @@ import StopWatchTimer from './stopwatchtimer.js'
     }
 
     render(){
-        return <StopWatchTimer parentstateprop={this.state} methodwrapper={this.methodwrapper}></StopWatchTimer>
+        return <div style={{display:"inline"}}>
+                        <StopWatchTimer parentstateprop={this.state} methodwrapper={this.methodwrapper}></StopWatchTimer>
+                </div>
+                
     }
 
 

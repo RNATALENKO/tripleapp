@@ -70,15 +70,14 @@ class ToDoList extends Component{
 
     render(){
 
-        return <div>
+        return <span style={{display:"inline"}}>
                 <input type="text" onChange={this.retrieveInput}></input>
                 <button onClick={this.updateParent} onClick={this.attachBroadItem}>Add To List</button>
                 <ul id="mylist" style={this.listStyle}>
                     {this.state.list.map((item,index)=><li key={index}>{item}</li>)}
-                    <ListItem></ListItem>
                     {this.state.broadlist.map((item)=>item)}
                 </ul>
-             </div>
+             </span>
     }
 }
 

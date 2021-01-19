@@ -21,9 +21,9 @@ class TempCalc extends Component{
     render(){
 
 
-            return <div>
+            return <span style={{display:"inline"}}>
                         <TempCalcMenu updatefunc={this.update} tempcalcstate={this.state} updateTempWrapper={this.updateTempWrapper}></TempCalcMenu>
-                   </div>
+                   </span>
     }
 }
 

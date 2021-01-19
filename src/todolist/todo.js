@@ -20,7 +20,9 @@ class ToDo extends Component {
 
     //send the input value and props func down to child
     render(){
-        return <ToDoList inputprop={this.state.input} updatepropf={this.update}></ToDoList>;
+        return <span style={{display:"inline"}}>
+                <ToDoList inputprop={this.state.input} updatepropf={this.update}></ToDoList>
+        </span>;
     }
 }
 
